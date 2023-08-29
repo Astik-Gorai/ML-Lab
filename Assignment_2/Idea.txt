@@ -1,0 +1,93 @@
+Solvers:
+n logistic regression, the solver is an optimization algorithm that determines how the logistic regression model finds the best set of coefficients (weights) that minimize the loss function and, consequently, make accurate predictions. Different solvers use various optimization techniques to find these coefficients.
+There are different Solvers present :
+ 
+1. SAG (Stochastic Average Gradient): SAG uses a stochastic average gradient descent method and is efficient for large datasets. It's suitable for both L2-regularized logistic regression and logistic regression without regularization.
+
+2. Liblinear: This solver is suitable for small to medium-sized datasets. It uses a coordinate descent algorithm for L1-regularized logistic regression and a variant of the Limited-memory Broyden-Fletcher-Goldfarb-Shanno (L-BFGS) optimization algorithm for L2-regularized logistic regression. It's a good choice when you have a binary classification problem with a moderate number of samples.
+
+
+
+********************************  Penalties *************************
+
+In logistic regression, penalties, also known as regularization terms or penalty terms, are additional terms added to the logistic regression loss function to prevent overfitting and improve the generalization of the model. These penalties encourage the model to have smaller coefficients (weights) for features, effectively reducing the complexity of the model.
+
+There are two common types of penalties used in logistic regression:
+
+L1 Penalty (Lasso Regression): The L1 penalty is the sum of the absolute values of the coefficients multiplied by a regularization parameter (often denoted as 'C' in scikit-learn). Mathematically, it is represented as:
+
+L1 Penalty = C * Σ|coefficients|
+
+The L1 penalty encourages sparsity in the model, which means it tends to set some of the coefficients to exactly zero. This leads to feature selection, where some features are effectively ignored by the model. L1 regularization is useful when you suspect that only a subset of features is relevant to the prediction task.
+
+L2 Penalty (Ridge Regression): The L2 penalty is the sum of the squares of the coefficients multiplied by a regularization parameter 'C':
+
+L2 Penalty = C * Σ(coefficients^2)
+
+The L2 penalty does not encourage sparsity but instead discourages the coefficients from becoming too large. It tends to spread the impact of all features across the model, reducing the risk of overfitting. L2 regularization is useful when you want to prevent large coefficients and maintain all features in the model.
+
+In scikit-learn's LogisticRegression implementation, we can specify the type of penalty and the strength of regularization using the penalty and C parameters, respectively. For example, to use an L1 penalty with a specific regularization strength:
+
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression(penalty='l1', C=1.0)
+Penalties in logistic regression are essential for controlling model complexity and improving its ability to generalize to unseen data. The choice between L1 and L2 regularization, as well as the regularization strength 'C,' should be based on the characteristics of your dataset and the specific problem you are trying to solve.
+
+
+
+
+*************************************************** N Fold Cross Validation **********************************
+
+N-fold cross-validation is a common technique in machine learning for evaluating the performance and generalization ability of a predictive model. It involves splitting your dataset into N subsets or "folds," where N is typically a positive integer. The model is then trained and evaluated N times, each time using a different fold as the validation set while the remaining folds are used for training.
+
+Here's how N-fold cross-validation works:
+
+Data Splitting: The dataset is randomly divided into N equally sized (or nearly equally sized) folds. Each fold contains a subset of the data.
+
+Model Training and Evaluation: N iterations of training and evaluation are performed. In each iteration:
+
+One fold is used as the validation set.
+The remaining (N-1) folds are combined and used as the training set.
+The model is trained on the training set and evaluated on the validation set.
+Performance Metrics: Performance metrics (e.g., accuracy, precision, recall, F1-score) are computed for each iteration.
+
+Average Metrics: The performance metrics from all iterations are averaged to obtain a more robust estimate of the model's performance.
+
+
+****************************************** How Logistic Regression Works  *****************************************
+A logistic regression model finds the decision boundary by estimating a linear relationship between the features and the log-odds (logit) of the target variable belonging to the positive class. The decision boundary is the threshold that separates instances classified as the positive class from those classified as the negative class. Here's how it works:
+
+Linear Combination of Features and Coefficients:
+
+Logistic regression assumes a linear relationship between the features and the log-odds (logit) of the target variable. The log-odds is often denoted as "z."
+The linear combination of the model's coefficients (β₀, β₁, β₂, ..., βᵣ) and the feature values (X₁, X₂, ..., Xᵣ) is calculated to form "z":
+
+z = β₀ + β₁ * X₁ + β₂ * X₂ + ... + βᵣ * Xᵣ
+Each feature is weighted by its corresponding coefficient, and these weighted features are summed up.
+Transformation with the Logistic Function:
+
+The linear combination "z" is transformed using the logistic function (also known as the sigmoid function) to obtain the estimated probability of the positive class:
+
+P(y=1 | X) = 1 / (1 + e^(-z))
+Here, P(y=1 | X) is the probability that the target variable is 1 (positive class) given the features X, and e is the base of the natural logarithm.
+Decision Boundary:
+
+The decision boundary is the threshold at which you decide whether an instance belongs to the positive class (1) or the negative class (0).
+The common threshold is 0.5, meaning that if P(y=1 | X) is greater than or equal to 0.5, the instance is classified as the positive class; otherwise, it's classified as the negative class.
+Mathematically, this can be expressed as:
+
+if P(y=1 | X) >= 0.5, classify as 1 (positive class)
+if P(y=1 | X) < 0.5, classify as 0 (negative class)
+
+The decision boundary is where P(y=1 | X) equals the threshold value.
+In summary, the logistic regression model finds the decision boundary by learning the coefficients (β₀, β₁, β₂, ..., βᵣ) that best describe the linear relationship between the features and the log-odds of the positive class. When this log-odds value crosses the threshold, it determines the class label. The choice of threshold can affect the model's classification behavior and should be set based on the specific problem and requirements.
+
+
+
+
+************************************* Overfitting ***************************
+
+Overfitting is a common problem in machine learning and statistical modeling, and it occurs when a model learns the training data too well, capturing noise, random fluctuations, or idiosyncrasies in the data rather than the underlying patterns that generalize to new, unseen data. In other words, an overfit model performs exceptionally well on the training data but poorly on validation or test data because it has essentially memorized the training data rather than learned the true underlying relationships.
+
+
+
