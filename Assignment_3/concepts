@@ -1,0 +1,91 @@
+                          Astik Gorai
+                        2020csb038.astik@students.iiests.ac.in
+What is Regularization ?
+Why Regularization ?
+What is L1 Regularization ?
+What is L2 Regularization ?
+
+
+
+In L1 regularization, an additional term is added to the loss function that penalizes the absolute values of the coefficients:
+
+Loss = (1/2m) * Σ(yᵢ - ŷᵢ)² + λ * Σ|θᵢ|
+Where:
+λ (lambda) is the regularization parameter, which controls the strength of the regularization.
+θᵢ represents the model's coefficients.
+The key characteristic of L1 regularization is that it encourages some of the θᵢ
+coefficients to become exactly zero during the optimization process, depending on the value of λ.
+This leads to a sparse model where only a subset of the original features are considered important for making predictions,
+ effectively performing feature selection. Features with non-zero coefficients are retained, 
+while features with zero coefficients are essentially ignored by the model.
+
+
+
+
+In L2 regularization, an additional term is added to the loss function that penalizes the squared magnitudes of the coefficients:
+
+Loss = (1/2m) * Σ(yᵢ - ŷᵢ)² + λ * Σ(θᵢ²)
+Where:
+λ (lambda) is the regularization parameter, which controls the strength of the regularization.
+θᵢ represents the model's coefficients.
+The key characteristic of L2 regularization is that it encourages all of the θᵢ coefficients to be small, 
+but it does not force any of them to become exactly zero. Instead, it spreads the penalty across all coefficients, 
+resulting in a model with smaller and more evenly distributed coefficients. This helps prevent the model from fitting the 
+training data too closely, reducing the risk of overfitting.
+
+
+L1 Regularization vs L2 Regularization 
+
+Feature Selection:
+
+L1 Regularization: 
+L1 regularization is known for its feature selection capability. It tends to drive some coefficients to exactly zero,
+effectively removing irrelevant features from the model. This makes it valuable when dealing with high-dimensional datasets
+or when you want a simplified model with fewer features.
+L2 Regularization:
+L2 regularization does not perform feature selection; it shrinks all coefficients toward zero 
+but does not make any of them exactly zero. It is useful for preventing overfitting and improving the generalization of models
+without eliminating features.
+
+
+Confusion Matrix:
+A Confusion Matrix is a tool in machine learning to assess the performance of a classification model, such as a binary or multiclass classifier.
+
+
+A confusion matrix consists of four fundamental components:
+
+True Positives (TP): These are cases where the model correctly predicted the positive class (i.e., correctly classified instances that actually belong to the positive class).
+
+True Negatives (TN): These are cases where the model correctly predicted the negative class (i.e., correctly classified instances that actually belong to the negative class).
+
+False Positives (FP): These are cases where the model incorrectly predicted the positive class (i.e., misclassified instances that actually belong to the negative class, often referred to as Type I errors).
+
+False Negatives (FN): These are cases where the model incorrectly predicted the negative class (i.e., misclassified instances that actually belong to the positive class, often referred to as Type II errors).
+
+
+
+
+
+
+               Predicted
+               Positive   Negative
+Actual  Positive   TP        FN
+        Negative   FP        TN
+
+
+
+
+How Decision Tree Works ?
+
+
+A decision tree is a supervised machine learning algorithm used for both classification and regression tasks. It is a versatile and interpretable model that works by recursively partitioning the dataset into subsets based on the most significant attribute or feature at each step. Here's how a decision tree works:
+
+Selecting the Best Attribute (Feature): The decision tree algorithm starts at the root node, which represents the entire dataset. It evaluates all the available attributes and selects the one that provides the best split or separation of data points. The "best" split is typically determined using a criterion like Gini impurity (for classification) or mean squared error (for regression).
+
+Splitting the Data: Once the best attribute is chosen, the dataset is divided into subsets, each corresponding to a unique value or range of values for the chosen attribute. These subsets are represented by child nodes, and the process continues recursively for each child node. This splitting process is repeated until one of the stopping conditions is met, such as reaching a maximum depth, a minimum number of samples in a node, or a pure node in a classification task (where all data points belong to the same class).
+
+Creating the Tree: As the tree grows, it forms a hierarchical structure with the root node at the top and leaf nodes at the bottom. The leaf nodes contain the final predictions for classification (the majority class) or regression (the mean or median of the target values) based on the data points within that leaf.
+
+Pruning (Optional): After the decision tree is constructed, a pruning step may be applied to remove branches or subtrees that do not significantly contribute to improving the model's performance on validation data. Pruning helps prevent overfitting by simplifying the tree.
+
+Making Predictions: To make predictions on new, unseen data, you start at the root node and traverse the tree by following the branches based on the values of the features. You eventually reach a leaf node, which provides the prediction for the input data point.
