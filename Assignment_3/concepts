@@ -89,3 +89,20 @@ Creating the Tree: As the tree grows, it forms a hierarchical structure with the
 Pruning (Optional): After the decision tree is constructed, a pruning step may be applied to remove branches or subtrees that do not significantly contribute to improving the model's performance on validation data. Pruning helps prevent overfitting by simplifying the tree.
 
 Making Predictions: To make predictions on new, unseen data, you start at the root node and traverse the tree by following the branches based on the values of the features. You eventually reach a leaf node, which provides the prediction for the input data point.
+
+
+
+
+In the context of Support Vector Machines (SVM), a "kernel" refers to a mathematical function that allows SVMs to operate effectively in higher-dimensional spaces without explicitly calculating the coordinates of the data points in that space. Kernels provide a way to transform the original input data into a higher-dimensional feature space, where the SVM can find a linear separating hyperplane that might not be linear in the original feature space.
+SVMs are primarily designed for binary classification, where the goal is to find a hyperplane that best separates two classes while maximizing the margin (distance) between the classes. However, not all data is linearly separable in the original feature space. This is where kernels come into play.
+Kernels enable SVMs to perform a non-linear transformation of the input features into a higher-dimensional space, where the data might become more separable. The key idea is that while the data might be difficult to separate in the original space, it could become easier to separate in a higher-dimensional space. The transformed data might even become linearly separable with a hyperplane.
+Commonly used kernels include:
+Linear Kernel: This is the simplest kernel. It corresponds to no transformation, essentially performing linear classification in the original feature space.
+Polynomial Kernel: This applies a polynomial function to the original features, effectively projecting the data into a higher-dimensional space. The degree of the polynomial is a parameter that determines the complexity of the transformation.
+Radial Basis Function (RBF) Kernel: Also known as the Gaussian kernel, it applies a Gaussian distribution to each data point, effectively mapping the data into an infinite-dimensional space. The RBF kernel is quite versatile and often provides excellent results.
+Sigmoid Kernel: This kernel applies a sigmoid function to the data, transforming it non-linearly.
+The mathematical formulation of kernels is such that the calculations occur only in the form of dot products between data points in the transformed space. This is known as the "kernel trick." It allows SVMs to implicitly operate in the higher-dimensional space without having to compute the actual transformed data.
+In summary, a kernel in SVMs is a function that enables the algorithm to perform non-linear transformations of input data into higher-dimensional spaces. This allows SVMs to find linear hyperplanes that effectively separate classes that might not be separable in the original feature space. Kernels enhance the power and flexibility of SVMs, making them capable of handling complex classification problems.
+
+
+
