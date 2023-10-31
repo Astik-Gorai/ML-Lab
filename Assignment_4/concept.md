@@ -9,5 +9,13 @@ Different Types of kernal functions:
 
 Polynomial Kernal:
 It represents the similarity of vectors in the training set of data in a feature space over polynomials of the original variables used in the kernel.
-![image](https://github.com/Astik-Gorai/ML-Lab/assets/81304561/3ec2643c-511d-4cc0-a18a-e6717ed93570)
+![image](https://github.com/Astik-Gorai/ML-Lab/assets/81304561/aebe0e39-c6b2-454d-a6e7-fb2b1e2df864)
 
+
+Sigmoid Kernal:
+this function is equivalent to a two-layer, perceptron model of the neural network, which is used as an activation function for artificial neurons.
+![image](https://github.com/Astik-Gorai/ML-Lab/assets/81304561/92fdc534-7b68-468d-bc0f-b3f4601ed9ff)
+
+RBF Kernal:
+Improvement of Gaussian Kernal.
+![image](https://github.com/Astik-Gorai/ML-Lab/assets/81304561/beaf4686-77e8-4e4a-8783-047a0446a242)
