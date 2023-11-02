@@ -13,10 +13,11 @@ Vanishing and exploding gradients are common problems that can occur during the 
 The exploding gradient problem, on the other hand, occurs when gradients become too large during backpropagation. When this happens, the weights are updated by a large amount, which can cause the network to diverge or oscillate, making it difficult to converge to a good solution.
 
 To address these problems the following technique can be used:
+
         1. Weights Regularzations: The initialization of weights can be adjusted to ensure that they are in an appropriate range. Using a different activation   
                                 function, such as the Rectified Linear Unit (ReLU), can also help to mitigate the vanishing gradient problem.
                                 
         2. Gradient clipping: It involves limiting the maximum and minimum values of the gradient during backpropagation. This can prevent the gradients from     
                            becoming too large or too small and can help to stabilize the training process.
                            
-        3. Batch normalization: It can also help to address these problems by normalizing the input to each layer, which can prevent the activation function from                              saturating and help to reduce the vanishing and exploding gradient problems.
+        3.  Batch normalization: It can also help to address these problems by normalizing the input to each layer, which can prevent the activation function   from saturating and help to reduce the vanishing and exploding gradient problems.
