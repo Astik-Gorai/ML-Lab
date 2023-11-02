@@ -21,3 +21,14 @@ To address these problems the following technique can be used:
                            becoming too large or too small and can help to stabilize the training process.
                            
         3.  Batch normalization: It can also help to address these problems by normalizing the input to each layer, which can prevent the activation function   from saturating and help to reduce the vanishing and exploding gradient problems.
+
+Types Of Gradient Descent:
+
+          1. Batch Gradient Descent:  In batch gradient descent, To update the model parameter values like weight and bias, the entire training dataset is used to compute the gradient and update the parameters at each iteration. This can be slow for large datasets but may lead to a more accurate model. It is effective for convex or relatively smooth error manifolds because it moves directly toward an optimal solution by taking a large step in the direction of the negative gradient of the cost function. However, it can be slow for large datasets because it computes the gradient and updates the parameters using the entire training dataset at each iteration. This can result in longer training times and higher computational costs.
+          2. Stocastic Gradient Descent:In SGD, only one training example is used to compute the gradient and update the parameters at each iteration. This can be faster than batch gradient descent but may lead to more noise in the updates.
+          3. Mini-Batch Gradient Descent: In Mini-batch gradient descent a small batch of training examples is used to compute the gradient and update the parameters at each iteration. This can be a good compromise between batch gradient descent and Stochastic Gradient Descent, as it can be faster than batch gradient descent and less noisy than Stochastic Gradient Descent
+
+
+ Internal Covariate Shift: Internal Covariate Shift refers to a phenomenon in deep neural networks where the distribution of the activations within each layer of the network changes during training. This change in distribution can have a detrimental effect on training convergence and network performance.
+ Fixed distribution of inputs to a sub-network would have positive consequences for the layers outside the subnetwork, as well.
+ 
